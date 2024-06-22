@@ -1,1 +1,1 @@
-# memeGenerator
+# QRCodeGenerator
