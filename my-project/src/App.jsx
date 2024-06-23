@@ -28,7 +28,7 @@ const App = () => {
       </p>
       <div className="flex flex-col items-center justify-center px-4 py-4 my-4 bg-white rounded sm:px-8 md:flex-row md:rounded-xl h-fit w-fit">
         <img
-          src="../src/assets/images/illustration.png"
+          src="https://res.cloudinary.com/dy7zpv1ij/image/upload/v1719156872/illustration_xjpz9z.png"
           className="w-56 md:w-80"
         />
         <div id="igniteqrcode" className="">
