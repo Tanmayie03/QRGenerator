@@ -4,18 +4,25 @@ import igniteFireIcon from "../src/assets/images/igniteFire.png";
 import illustrationIgnite from "../src/assets/images/illustration.png";
 
 const downloadQRCode = () => {
-  const canvas = document
-    .getElementById("igniteqrcode")
-    ?.querySelector("canvas");
-  if (canvas) {
-    const url = canvas.toDataURL("image/png");
-    const a = document.createElement("a");
-    a.download = "QRCode.png";
-    a.href = url;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
+  const qrCodeElement = document.getElementById("igniteqrcode");
+  const qrCodeCanvas = qrCodeElement.querySelector("canvas");
+
+  const padding = 20;
+  const canvas = document.createElement("canvas");
+  canvas.width = qrCodeCanvas.width + 2 * padding;
+  canvas.height = qrCodeCanvas.height + 2 * padding;
+
+  const context = canvas.getContext("2d");
+  context.fillStyle = "#ffffff";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(qrCodeCanvas, padding, padding);
+  const url = canvas.toDataURL("image/png");
+  const a = document.createElement("a");
+  a.download = "QRCode.png";
+  a.href = url;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 };
 
 const App = () => {
@@ -33,6 +40,7 @@ const App = () => {
         <div id="igniteqrcode" className="">
           <Space
             type="canvas"
+            style={{ padding: "20px" }}
             className="flex flex-col items-center p-6 w-fit md:h-96 md:w-96">
             <label className="text-lg font-semibold  text-[#ff6246]">
               Enter Link here
@@ -45,14 +53,21 @@ const App = () => {
               className="w-64 px-4 py-1 mb-2 text-black border border-black outline-none"
               onChange={(e) => setText(e.target.value)}
             />
+
             <QRCode
               value={text || "-"}
               bgColor="white"
+              fgColor="black"
               icon={igniteFireIcon}
               bordered="true"
               size={200}
               iconSize={50}
               level="H"
+              style={{
+                padding: "20px",
+                margin: "20px",
+                border: "2px solid black",
+              }}
               className="border-2 border-black "
             />
             <Button
