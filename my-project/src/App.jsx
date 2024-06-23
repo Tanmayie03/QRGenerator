@@ -17,31 +17,50 @@ const downloadQRCode = () => {
 };
 
 const App = () => {
-  const [text, setText] = React.useState(
-    "https://www.ignitestudentassociation.com"
-  );
+  const [text, setText] = React.useState("https://ant.design/");
+  console.log(text);
   return (
-    <div id="igniteqrcode">
-      <Space type="canvas" className="flex flex-col items-center">
-        <QRCode
-          value={text || "-"}
-          bgColor="white"
-          icon="../src/assets/images/igniteFire.png"
-          bordered="true"
-          size={200}
-          level="H"
-          className="border-2 border-black "
-        />
-        <Input
-          color="black"
-          placeholder="Enter link"
-          className="text-black"
-          onChange={(e) => setText(e.target.value)}
-        />
-        <Button type="primary" onClick={downloadQRCode}>
-          Download
-        </Button>
-      </Space>
+    <div
+      id="igniteqrcode"
+      className=" w-full h-screen  flex flex-col items-center justify-center bg-[#fff4f0]   ">
+      <p className="text-4xl font-semibold text-center text-[#ff6246]">
+        Generate QRCode
+      </p>
+      <div className="flex items-center justify-center px-8 py-4 my-4 bg-white rounded-xl h-fit w-fit">
+        <img src="../src/assets/images/illustration.png" className="w-80" />
+        <div id="igniteqrcode" className="">
+          <Space
+            type="canvas"
+            className="flex flex-col items-center p-6 h-96 w-96">
+            <label className="text-lg font-semibold  text-[#ff6246]">
+              Enter Link here
+            </label>
+            <Input
+              color="black"
+              placeholder="Enter link"
+              value={text}
+              maxLength={60}
+              className="w-64 px-4 py-1 mb-2 text-black border border-black outline-none"
+              onChange={(e) => setText(e.target.value)}
+            />
+            <QRCode
+              value={text || "-"}
+              bgColor="white"
+              icon="../src/assets/images/igniteFire.png"
+              bordered="true"
+              size={200}
+              iconSize={50}
+              level="H"
+              className="border-2 border-black "
+            />
+            <Button
+              className="w-48 bg-[#ff6246] hover:bg-[#ff6246  ] text-white p-1"
+              onClick={downloadQRCode}>
+              Download
+            </Button>
+          </Space>
+        </div>
+      </div>
     </div>
   );
 };
