@@ -22,16 +22,19 @@ const App = () => {
   return (
     <div
       id="igniteqrcode"
-      className=" w-full h-screen  flex flex-col items-center justify-center bg-[#fff4f0]   ">
+      className=" w-full h-screen  flex flex-col items-center p-6 justify-center bg-[#fff4f0]   ">
       <p className="text-4xl font-semibold text-center text-[#ff6246]">
         Generate QRCode
       </p>
-      <div className="flex items-center justify-center px-8 py-4 my-4 bg-white rounded-xl h-fit w-fit">
-        <img src="../src/assets/images/illustration.png" className="w-80" />
+      <div className="flex flex-col items-center justify-center px-4 py-4 my-4 bg-white rounded sm:px-8 md:flex-row md:rounded-xl h-fit w-fit">
+        <img
+          src="../src/assets/images/illustration.png"
+          className="w-56 md:w-80"
+        />
         <div id="igniteqrcode" className="">
           <Space
             type="canvas"
-            className="flex flex-col items-center p-6 h-96 w-96">
+            className="flex flex-col items-center p-6 w-fit md:h-96 md:w-96">
             <label className="text-lg font-semibold  text-[#ff6246]">
               Enter Link here
             </label>
