@@ -23,7 +23,7 @@ const App = () => {
     <div
       id="igniteqrcode"
       className=" w-full h-screen  flex flex-col items-center p-6 justify-center bg-[#fff4f0]   ">
-      <p className="text-4xl font-semibold text-center text-[#ff6246]">
+      <p className="text-3xl font-semibold text-center text-[#ff6246]">
         Generate QRCode
       </p>
       <div className="flex flex-col items-center justify-center px-4 py-4 my-4 bg-white rounded sm:px-8 md:flex-row md:rounded-xl h-fit w-fit">
